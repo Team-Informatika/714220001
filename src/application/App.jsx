@@ -65,7 +65,7 @@ function App() {
             .map((data) => {
               return (
                 <img
-                  src={`public/${data.image}`}
+                  src={data.image}
                   alt={`${data.name}'s Image`}
                   key={data.id}
                 />
