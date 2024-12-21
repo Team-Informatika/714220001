@@ -1,0 +1,128 @@
+@use "../helpers/styles.scss" as s;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  font-family: s.$space-mono;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.kp-navbar {
+  @include s.flex($justify: space-between);
+  padding: 1.5rem s.$px-main;
+  font-size: 0.9rem;
+
+  &-logo {
+    font-family: s.$jetbrains-mono;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    @include s.line-hover(0.7s);
+  }
+
+  &-links {
+    @include s.flex();
+    gap: 3.6rem;
+
+    .link {
+      cursor: pointer;
+      @include s.line-hover();
+
+      &.active {
+        font-family: s.$jetbrains-mono;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+@mixin content($m: 0, $w: 16rem, $t-align: left) {
+  margin: $m;
+  width: $w;
+  text-align: $t-align;
+}
+
+.kp-core {
+  padding: 2.3rem s.$px-main 0;
+  @include s.flex($start: true);
+  gap: 4.1rem;
+
+  &-content1 {
+    @include content();
+
+    &.contact {
+      @include content();
+      cursor: pointer;
+
+      .wrapper-loan {
+        width: fit-content;
+        margin: 0 auto 1rem 0;
+        @include s.line-hover();
+      }
+    }
+  }
+
+  &-image {
+    position: relative;
+    width: 32rem;
+    height: 24rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-content2 {
+    @include content($m: auto 0 5rem auto, $t-align: right);
+
+    &.contact {
+      @include content($m: auto 0 8.2rem auto, $w: fit-content);
+      cursor: pointer;
+
+      .wrapper-loan {
+        width: inherit;
+        margin: 1rem 0 0 auto;
+        @include s.line-hover($time: 0.7s);
+        z-index: 10;
+      }
+    }
+  }
+}
+
+.kp-me {
+  position: absolute;
+  bottom: 0;
+  overflow: clip;
+
+  &-marquee {
+    line-height: 125%;
+    font-size: 16rem;
+    text-transform: lowercase;
+    width: max-content;
+    animation: marquee 20s linear infinite forwards;
+    mix-blend-mode: difference;
+
+    span {
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
