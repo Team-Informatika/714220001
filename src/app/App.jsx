@@ -41,13 +41,23 @@ function App() {
   );
 
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 500); // Initial loader timeout
+    setTimeout(() => setIsLoading(false), 500);
   }, []);
 
   return (
     <>
       <div className={`kp-loader ${isLoading ? "active" : ""}`}></div>
-      <div className={`kp-app ${isLoading ? "" : "display"}`}>
+      <div
+        className={`kp-app ${isLoading ? "" : "display"} ${
+          activeLink === 2
+            ? "kp-app-2"
+            : activeLink === 3
+            ? "kp-app-3"
+            : activeLink === 4
+            ? "kp-app-4"
+            : ""
+        }`}
+      >
         <div className="kp-navbar">
           <div className="kp-navbar-logo">kostsplayer</div>
           <div className="kp-navbar-time">{time} (Bandung)</div>

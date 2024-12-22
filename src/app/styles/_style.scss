@@ -130,7 +130,6 @@ body {
         width: inherit;
         margin: 1rem 0 0 auto;
         @include h.line-hover($time: 0.7s);
-        z-index: 10;
       }
     }
   }

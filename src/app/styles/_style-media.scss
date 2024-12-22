@@ -8,7 +8,19 @@
 
   .kp-app {
     height: auto;
-    min-height: 145vh;
+    min-height: 144.7vh;
+
+    &.kp-app-2 {
+      min-height: 135vh;
+    }
+
+    &.kp-app-3 {
+      min-height: 128.5vh;
+    }
+
+    &.kp-app-4 {
+      min-height: 145.5vh;
+    }
   }
 
   .kp-navbar {
