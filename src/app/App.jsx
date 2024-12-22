@@ -95,7 +95,7 @@ function App() {
                         handleActiveLink(data.id);
                       }}
                     >
-                      {data.name}
+                      {data.name},
                     </div>
                   );
                 })}

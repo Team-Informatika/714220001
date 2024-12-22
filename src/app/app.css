@@ -222,6 +222,7 @@ body {
   }
 }
 @media (max-width: 767.98px) {
+  html,
   body {
     overflow-y: auto;
   }
@@ -296,6 +297,10 @@ body {
   .kp-navbar .mobile-wrapper .link:hover::after {
     transition: transform 0.7s ease;
     transform: scaleX(1);
+  }
+  .kp-navbar .mobile-wrapper .link.active {
+    font-family: "JetBrains Mono", serif;
+    font-weight: 500;
   }
   .kp-core {
     display: flex;

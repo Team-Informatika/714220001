@@ -1,6 +1,7 @@
 @use "../../helpers/helper" as h;
 
 @media (max-width: 767.98px) {
+  html,
   body {
     overflow-y: auto;
   }
@@ -67,6 +68,11 @@
         cursor: pointer;
         font-size: 1.5rem;
         @include h.line-hover(0.7s, 1.9px);
+
+        &.active {
+          font-family: h.$jetbrains-mono;
+          font-weight: 500;
+        }
       }
     }
   }
