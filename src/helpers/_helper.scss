@@ -34,14 +34,14 @@ $px-main: 1.9rem;
   border-radius: 50%;
 }
 
-@mixin line-hover($time: 0.45s) {
+@mixin line-hover($time: 0.45s, $h: 1.2px) {
   position: relative;
 
   &::after {
     content: "";
     position: absolute;
     width: 100%;
-    height: 1.2px;
+    height: $h;
     background-color: #000;
     bottom: -0.2rem;
     left: 0;

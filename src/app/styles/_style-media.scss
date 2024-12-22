@@ -1,0 +1,83 @@
+@use "../../helpers/helper" as h;
+
+@media (max-width: 767.98px) {
+  body {
+    overflow-y: auto;
+  }
+
+  .kp-app {
+    height: auto;
+    min-height: 145vh;
+  }
+
+  .kp-navbar {
+    &-logo {
+      font-size: 1.5rem;
+    }
+
+    &-links,
+    &-time {
+      display: none;
+    }
+
+    &-mobile {
+      display: block;
+      cursor: pointer;
+    }
+
+    .mobile-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: #fff;
+      @include h.flex($direction: column);
+      padding: 2.9rem h.$px-main;
+      gap: 2.3rem;
+      z-index: 10;
+
+      &.slide-in {
+        animation: slide-in 1s ease-in-out forwards;
+      }
+
+      &.slide-out {
+        animation: slide-out 1s ease-in-out forwards;
+      }
+
+      @keyframes slide-in {
+        0% {
+          transform: translateY(-100%);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slide-out {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-100%);
+        }
+      }
+
+      .link {
+        cursor: pointer;
+        font-size: 1.5rem;
+        @include h.line-hover(0.7s, 1.9px);
+      }
+    }
+  }
+
+  .kp-core {
+    @include h.flex($direction: column, $start: true);
+    gap: 2.1rem;
+    padding: 0.5rem h.$px-main;
+
+    &-image {
+      width: 100%;
+    }
+  }
+}

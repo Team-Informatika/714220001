@@ -1,0 +1,12 @@
+@use "../helpers/helper.scss" as h;
+@use "./styles/style";
+@use "./styles/style-media";
+@use "../components/hamburger/hamburger";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

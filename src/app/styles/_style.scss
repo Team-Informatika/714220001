@@ -1,48 +1,82 @@
-@use "../helpers/styles.scss" as s;
-
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@use "../../helpers/helper.scss" as h;
 
 body {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  font-family: s.$space-mono;
   overflow: hidden;
+  font-family: h.$space-mono;
+}
+
+.kp-app {
   background-color: #fff;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.7s ease-out, visibility 0.7s ease-out;
+
+  &.display {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    transition: opacity 0.7s ease-in, visibility 0.7s ease-in;
+  }
+}
+
+.kp-loader {
+  position: absolute;
+  inset: 0;
+  z-index: 99;
+  background-color: #000;
+  transform: translateY(-100%);
+
+  &.active {
+    animation: loader 3s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  }
+
+  @keyframes loader {
+    0% {
+      transform: translateY(-100%);
+    }
+    50% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
 }
 
 .kp-navbar {
-  @include s.flex($justify: space-between);
-  padding: 1.5rem s.$px-main;
+  @include h.flex($justify: space-between);
+  padding: 1.5rem h.$px-main;
   font-size: 0.9rem;
 
   &-logo {
-    font-family: s.$jetbrains-mono;
+    font-family: h.$jetbrains-mono;
     font-size: 1.2rem;
     cursor: pointer;
 
-    @include s.line-hover(0.7s);
+    @include h.line-hover(0.7s);
   }
 
   &-links {
-    @include s.flex();
+    @include h.flex();
     gap: 3.6rem;
 
     .link {
       cursor: pointer;
-      @include s.line-hover();
+      @include h.line-hover();
 
       &.active {
-        font-family: s.$jetbrains-mono;
+        font-family: h.$jetbrains-mono;
         font-weight: 500;
       }
     }
+  }
+
+  &-mobile {
+    display: none;
   }
 }
 
@@ -53,8 +87,8 @@ body {
 }
 
 .kp-core {
-  padding: 2.3rem s.$px-main 0;
-  @include s.flex($start: true);
+  padding: 2.3rem h.$px-main 0;
+  @include h.flex($start: true);
   gap: 4.1rem;
 
   &-content1 {
@@ -67,7 +101,7 @@ body {
       .wrapper-loan {
         width: fit-content;
         margin: 0 auto 1rem 0;
-        @include s.line-hover();
+        @include h.line-hover();
       }
     }
   }
@@ -94,7 +128,7 @@ body {
       .wrapper-loan {
         width: inherit;
         margin: 1rem 0 0 auto;
-        @include s.line-hover($time: 0.7s);
+        @include h.line-hover($time: 0.7s);
         z-index: 10;
       }
     }
@@ -116,7 +150,6 @@ body {
 
     span {
       color: #fff;
-      transition: color 0.3s ease;
     }
   }
 }
