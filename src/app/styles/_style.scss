@@ -1,5 +1,6 @@
 @use "../../helpers/helper.scss" as h;
 
+html,
 body {
   overflow: hidden;
   font-family: h.$space-mono;
